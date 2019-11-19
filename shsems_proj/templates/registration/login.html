@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %} 
+
+<div class="row mt-5">
+   <div class="col-lg-4 mx-auto"> 
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Login</h4>
+          <p class="card-text">
+            This is a secure site. Unauthorized access will be dealt with accordingly.
+          </p>
+          
+          <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }} 
+      <input type="submit" class="btn btn-primary" name="submit" value="Login" />
+      </form>
+        </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}
+
