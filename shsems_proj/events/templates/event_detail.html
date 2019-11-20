@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} {{ event.name }} {% endblock %}
+{% block content %}
+
+
+<div class="card p-3">      
+   <div class="card-body">
+      <div class="card-title"> {{ event.name }} </div>
+      <div class="card-text">
+         Starts on {{ event.date_from }} {{ event.time_from }} 
+         and ends on {{ event.date_to }} {{ event.time_to }}   
+      </div>    
+     <div class="card-text">
+          <small>Created by {{ event.creator }}</small>
+     </div>
+   </div>
+   <div class="card-footer">
+      <a href="{% url 'events_list' %}">back</a>
+   </div>
+</div>  
+{% endblock %}
