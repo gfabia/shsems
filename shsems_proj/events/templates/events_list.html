@@ -4,18 +4,33 @@
 <div class="card-columns">
    {% for event in object_list %}
    <div class="card m-3">
+      {% if event.poster %}
+      <img class="card-img-top" src="/media/{{ event.poster }}" />
+      {% endif %}
+      <!-- {{ event.poster }} -->
       <div class="card-body">
          <div class="card-title"> {{ event.name }} </div>
+
+
          <div class="card-text">
             Starts on {{ event.date_from }}
             and ends on {{ event.date_to }}
+
+            <br />
+            No. of participants: {{ event.all_participants | length }}
          </div>
          <div class="card-text">
             <small>Created by {{ event.creator }}</small>
          </div>
       </div>
       <div class="card-footer">
-         <a href="{% url 'event_detail' event.pk %}">more</a>
+         <a class="btn btn-info" href="{% url 'event_detail' event.pk %}">More</a>
+
+         {% if user.username in event.all_participants %}
+         {% else %}
+         <a class="btn btn-success mx-2" href="{% url 'registration_create' event.pk %}">Join</a>
+         {% endif %}
+
       </div>
    </div>
    {% endfor %}

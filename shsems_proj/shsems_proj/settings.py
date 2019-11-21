@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'users',
     'events',
     'static',
-    'crispy_forms'
+    'crispy_forms',
+    'registrations'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
