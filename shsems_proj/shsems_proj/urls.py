@@ -19,8 +19,9 @@ from django.urls import path, include
 from users.views import ParticipantCreateView
 
 urlpatterns = [
+    path('', include("static.urls")),
     path('admin/', admin.site.urls),    
     path('users/', include("django.contrib.auth.urls")),
-    path('signup/', ParticipantCreateView.as_view()),    
+    path('signup/', ParticipantCreateView.as_view(), name="signup"),    
     path('events/', include("events.urls")),
 ]
